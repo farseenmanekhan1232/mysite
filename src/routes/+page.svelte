@@ -28,6 +28,8 @@
         <li><a href="https://xtraspare.com">xtraspare</a> - e-commerce marketplace handling 10k+ products</li>
     </ul>
 
+    <p>also built <a href="https://github.com/farseenmanekhan1232/tkeybr">tkeybr</a> (terminal-based typing tutor inspired by keybr.com) and fixed a long-standing auth issue in <a href="https://github.com/farseenmanekhan1232/cf-tool">cf-tool</a> (codeforces cli) by building a companion chrome extension.</p>
+
     <p>i work with typescript, react, next.js, node, postgresql, cloudflare workers, and ai/ml tools like openai, langchain, and vector databases. also deep into streaming tech - webrtc, mediasoup, ffmpeg.</p>
 
     <p>everything i build is open-source. check out my <a href="https://github.com/farseenmanekhan1232">github</a>.</p>
