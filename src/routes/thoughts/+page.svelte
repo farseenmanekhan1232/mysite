@@ -1,27 +1,69 @@
+<script lang="ts">
+    import { thoughts } from '$lib/thoughts';
+    
+    // Sort by date descending
+    const sortedThoughts = [...thoughts].sort((a, b) => 
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    function formatDate(dateStr: string) {
+        return new Date(dateStr).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short', 
+            day: 'numeric'
+        }).toLowerCase();
+    }
+</script>
+
 <svelte:head>
     <title>thoughts - farseen</title>
-    <meta name="description" content="thoughts and writings from farseen" />
 </svelte:head>
 
-<section class="hero">
+<section class="thoughts-list">
     <h1>thoughts</h1>
-    <p class="tagline">random writings about building stuff</p>
+    
+    <div class="list">
+        {#each sortedThoughts as thought}
+            <article class="thought-item">
+                <div class="meta">
+                    <time>{formatDate(thought.date)}</time>
+                </div>
+                <h3><a href="/thoughts/{thought.slug}">{thought.title}</a></h3>
+            </article>
+        {/each}
+    </div>
 </section>
 
-<section class="blog-posts">
-    <article class="blog-post">
-        <div class="post-meta">
-            <time datetime="2026-01-15">jan 15, 2026</time>
-        </div>
-        <h3><a href="#">coming soon...</a></h3>
-        <p>i'll start writing about my journey building things. the wins, the losses, and everything in between.</p>
-    </article>
+<style>
+    h1 {
+        margin-bottom: var(--spacing-lg);
+    }
 
-    <!-- Add more blog posts here as you write them -->
-</section>
+    .thought-item {
+        margin-bottom: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
 
-<section class="hire-me">
-    <a href="https://www.upwork.com/freelancers/farseen" target="_blank" rel="noopener" class="hire-cta">
-        available for freelance work →
-    </a>
-</section>
+    .meta {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    h3 a {
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    h3 a:hover {
+        border-bottom-color: var(--link-color);
+    }
+</style>
