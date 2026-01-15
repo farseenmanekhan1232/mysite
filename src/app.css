@@ -121,11 +121,11 @@ h1 {
 /* Footer */
 footer {
     padding-top: var(--spacing-md);
-    border-top: 1px solid #000;
+    /* border-top removed */
     font-size: 0.8rem;
     color: var(--text-muted);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Changed to flex-start since we only have one item now */
 }
 
 .location-dot {

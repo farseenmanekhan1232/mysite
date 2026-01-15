@@ -36,5 +36,5 @@
 
     <p>—</p>
 
-    <p><a href="https://github.com/farseenmanekhan1232">github</a> · <a href="https://www.linkedin.com/in/farseen-m-2419531a7">linkedin</a> · <a href="mailto:farseenmanekhan1232@gmail.com">email</a></p>
+    <p><a href="https://github.com/farseenmanekhan1232">github</a> · <a href="https://x.com/farsn_">x</a> · <a href="https://www.linkedin.com/in/farseen-m-2419531a7">linkedin</a> · <a href="mailto:farseenmanekhan1232@gmail.com">email</a></p>
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
     import '../app.css';
+    import VisitorCounter from '$lib/components/VisitorCounter.svelte';
 </script>
 
 <svelte:head>
@@ -18,4 +19,8 @@
     <main>
         <slot />
     </main>
+
+    <footer>
+        <VisitorCounter />
+    </footer>
 </div>
