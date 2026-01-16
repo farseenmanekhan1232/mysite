@@ -23,6 +23,7 @@
     <p>now i'm building open-source tools:</p>
 
     <ul>
+        <li><a href="https://github.com/farseenmanekhan1232/win-set">win-set</a> - very minimal and opinionated window manager for macos with hyprland-style auto-tiling</li>
         <li><a href="https://rynk.io">rynk.io</a> - ai research platform on cloudflare's edge with semantic search</li>
         <li><a href="https://neustream.app">neustream.app</a> - multi-platform streaming infrastructure, open-source alternative to restream</li>
         <li><a href="https://xtraspare.com">xtraspare</a> - e-commerce marketplace handling 10k+ products</li>
