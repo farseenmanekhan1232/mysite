@@ -26,10 +26,9 @@
         <li><a href="https://github.com/farseenmanekhan1232/win-set">win-set</a> - very minimal and opinionated window manager for macos with hyprland-style auto-tiling</li>
         <li><a href="https://rynk.io">rynk.io</a> - ai research platform on cloudflare's edge with semantic search</li>
         <li><a href="https://neustream.app">neustream.app</a> - multi-platform streaming infrastructure, open-source alternative to restream</li>
-        <li><a href="https://xtraspare.com">xtraspare</a> - e-commerce marketplace handling 10k+ products</li>
+        <li><a href="https://github.com/farseenmanekhan1232/tkeybr">tkeybr</a> - terminal-based typing tutor inspired by keybr.com</li>
+        <li><a href="https://github.com/farseenmanekhan1232/cf-tool">cf-tool companion</a> - chrome extension fixing auth issues in codeforces cli</li>
     </ul>
-
-    <p>also built <a href="https://github.com/farseenmanekhan1232/tkeybr">tkeybr</a> (terminal-based typing tutor inspired by keybr.com) and fixed a long-standing auth issue in <a href="https://github.com/farseenmanekhan1232/cf-tool">cf-tool</a> (codeforces cli) by building a companion chrome extension.</p>
 
     <p>i work with typescript, react, next.js, node, postgresql, cloudflare workers, and ai/ml tools like openai, langchain, and vector databases. also deep into streaming tech - webrtc, mediasoup, ffmpeg.</p>
 

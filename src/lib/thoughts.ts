@@ -7,6 +7,25 @@ export interface Thought {
 
 export const thoughts: Thought[] = [
     {
+        slug: 'mediocre-software',
+        date: '2026-01-22',
+        title: 'why is all major software so mediocre?',
+        content: `why is it that almost all the major companies' software i use is pretty mediocre?
+
+- on x, half of my video posts fail to upload multiple times, every time.
+- on meta's dev platform, it's nearly impossible to understand the docs to configure a whatsapp bot, let alone test it.
+- for google auth to work on a mobile app, i had to upload, create-delete-recreate a firebase app and upload sha-1 multiple times from multiple places to multiple places.
+- for microsoft, bro come on.
+- on youtube, half the time when i navigate from shorts to homepage and back to shorts, the first 20 shorts are the exact same ones i already watched.
+- same for instagram reels.
+
+even after so many years in the business, all of them only care about shoving ads deep down our throats.
+
+now chatgpt is doing the same.
+
+fuck ads.`
+    },
+    {
         slug: 'clarity-vs-code',
         date: '2026-01-13',
         title: 'clarity vs code',
