@@ -23,11 +23,11 @@
     <p>now i'm building open-source tools:</p>
 
     <ul>
-        <li><a href="https://github.com/farseenmanekhan1232/win-set">win-set</a> - very minimal and opinionated window manager for macos with hyprland-style auto-tiling</li>
         <li><a href="https://rynk.io">rynk.io</a> - ai research platform on cloudflare's edge with semantic search</li>
         <li><a href="https://neustream.app">neustream.app</a> - multi-platform streaming infrastructure, open-source alternative to restream</li>
         <li><a href="https://github.com/farseenmanekhan1232/tkeybr">tkeybr</a> - terminal-based typing tutor inspired by keybr.com</li>
         <li><a href="https://github.com/farseenmanekhan1232/cf-tool">cf-tool companion</a> - chrome extension fixing auth issues in codeforces cli</li>
+        <li><a href="https://github.com/farseenmanekhan1232/win-set">win-set</a> - very minimal and opinionated window manager for macos with hyprland-style auto-tiling</li>
     </ul>
 
     <p>i work with typescript, react, next.js, node, postgresql, cloudflare workers, and ai/ml tools like openai, langchain, and vector databases. also deep into streaming tech - webrtc, mediasoup, ffmpeg.</p>
