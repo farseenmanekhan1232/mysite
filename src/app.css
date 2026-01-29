@@ -119,12 +119,27 @@ h1 {
 }
 
 .project-image {
-    max-width: 100%;
+    /* Break out of the container constraints */
+    width: calc(100% + 8rem);
+    max-width: 95vw;
+    margin-left: -4.75rem; /* Compensate for width increase + list indentation (1.5rem) */
+    
     height: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
     display: block;
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 768px) {
+    .project-image {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(-1.5rem - var(--spacing-md)); /* Break out to full viewport edge */
+        border-radius: 0;
+        margin-right: -2rem;
+    }
 }
 
 /* Footer */
