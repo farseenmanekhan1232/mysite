@@ -48,7 +48,5 @@
 
     <p>if you want to work together: <a href="https://www.upwork.com/freelancers/farseen">hire me on upwork</a> or <a href="mailto:farseenmanekhan1232@gmail.com">email me</a>.</p>
 
-    <p>—</p>
-
-    <p><a href="https://github.com/farseenmanekhan1232">github</a> · <a href="https://x.com/farsn_">x</a> · <a href="https://www.linkedin.com/in/farseen-m-2419531a7">linkedin</a> · <a href="mailto:farseenmanekhan1232@gmail.com">email</a></p>
+  
 </div>
