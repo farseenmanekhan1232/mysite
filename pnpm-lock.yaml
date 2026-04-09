@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      mysite:
+        specifier: 'link:'
+        version: 'link:'
       phosphor-svelte:
         specifier: ^3.1.0
         version: 3.1.0(svelte@5.53.6)(vite@7.3.1)
