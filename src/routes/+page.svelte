@@ -162,6 +162,9 @@
         <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/cf-tool">CF-Tool Companion</a></h3>
         <p>A <a href="https://en.wikipedia.org/wiki/Google_Chrome">Chrome</a> extension specifically built to resolve authentication friction in the popular Codeforces CLI tool. It streamlines the login process, allowing competitive programmers to seamlessly submit code and parse test cases directly from their terminal.</p>
         <div class="clear-float"></div>
+
+        <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/opencode-ollama-multi-auth">opencode-ollama-multi-auth</a></h3>
+        <p>An <a href="https://github.com/opencode-ai">Opencode</a> plugin for managing multiple Ollama Cloud API keys with automatic failover. It provides seamless key rotation on authentication errors (401, 403, 429), automatic key recovery after a configurable window, and supports both <code>opencode.json</code> and environment variable configuration. Built with TypeScript for developers needing reliable LLM API access without rate limit interruptions.</p>
     </details>
 
     <details open>
