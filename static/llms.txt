@@ -1,0 +1,179 @@
+# Farseen
+
+> Farseen is an Indian software developer based in Hubli. Known for his open-source work on AI tooling and streaming infrastructure, his projects are characterized by a focus on authentic human utility over algorithmic engagement. He has been active in web development, specializing in fullstack applications using Svelte, Next.js, and Cloudflare Workers.
+
+## About
+
+- **Name:** Farseen
+- **Born:** c. 2001, Hubli, India
+- **Occupation:** Software Developer
+- **Known for:** Open-source AI tooling, Streaming infrastructure
+- **GitHub:** [farseenmanekhan1232](https://github.com/farseenmanekhan1232)
+- **Email:** farseenmanekhan1232@gmail.com
+- **X (Twitter):** [@farsn_](https://x.com/farsn_)
+- **LinkedIn:** [farseen-m-2419531a7](https://www.linkedin.com/in/farseen-m-2419531a7)
+- **YouTube:** [1farseen](https://www.youtube.com/@1farseen)
+- **Substack:** [farseen.substack.com](https://farseen.substack.com/)
+- **Medium:** [farseenmanekhan1232.medium.com](https://farseenmanekhan1232.medium.com/)
+
+---
+
+## Biography
+
+Farseen's path into software engineering began through self-taught exploration, starting with writing Python scripts out of pure curiosity. He eventually transitioned into web development as a career. His early experiences in freelancing shaped his software philosophy, teaching him the realities of shipping production software: moving fast, writing reliable code, and solving actual user problems.
+
+He is a vocal critic of the "algorithmic noise" prevalent in modern social media, arguing that artificial intelligence should act as a tool to automate "grunt work" rather than a replacement for human intent and creativity. Now, he spends most of his time building open-source tools he wants to see in the world.
+
+---
+
+## Skills
+
+### Core Stack
+- **Frontend:** React 19, Next.js 15, TypeScript, TailwindCSS 4, Vite
+- **Backend:** Node.js, Express, PostgreSQL, Redis
+- **Languages:** JavaScript/TypeScript, Python, Shell scripting
+
+### Technical Differentiators
+- **Cloudflare Edge Platform:** Workers, Pages, D1, R2, Vectorize, Workers AI, Durable Objects, OpenNext deployment
+- **AI/Vector Search:** Embeddings, semantic search, LLM orchestration, multi-API integration (Exa, Perplexity, etc.)
+- **Real-time Systems:** WebSockets, Socket.IO, live data streaming
+- **Media Infrastructure:** FFmpeg, RTMP streaming, MediaMTX/NGINX-RTMP
+
+### Secondary Skills
+- Docker, CI/CD
+- Authentication (OAuth, Passport.js)
+- File processing (PDFs, images, code)
+- UI libraries (Radix UI, animation with Motion)
+
+---
+
+## Projects
+
+His earlier stack revolved around TypeScript, Svelte, Next.js, Node, Postgres, and Cloudflare Workers. Recently, he has been deeply involved in AI/ML integration (using OpenAI, Groq, and Vector DBs) and real-time streaming protocols (WebRTC, mediasoup, FFmpeg).
+
+Farseen's notable open-source projects include:
+
+### Rynk Ideas
+An open-source AI thought capture and synthesis tool built on the Cloudflare Edge platform. It acts as a pipeline converting raw thought "dumps" into clustered "Idea Threads" and actionable research plans. The technical stack involves Next.js, Cloudflare Workers, D1 (SQLite database), Vectorize for semantic search, and Groq for LLM orchestration.
+[View on GitHub](https://github.com/rynk-ai/rynk-ideas-web)
+
+### Rynk.io
+An AI-powered research platform running entirely on Cloudflare's edge network, utilizing embeddings and semantic search to connect ideas efficiently.
+[View Website](https://rynk.io)
+
+### Neustream.app
+A multi-platform streaming infrastructure tool positioned as an open-source alternative to services like Restream. It leverages RTMP streaming and FFmpeg to ingest a single video source and broadcast it efficiently to multiple destinations.
+[View Website](https://neustream.app)
+
+### Win-set
+A minimal, highly opinionated window manager for macOS with Hyprland-style auto-tiling. Built natively in Swift, it features Vim-style navigation (h/j/k/l), smart resize logic that pauses constraints during adjustment, drag-to-swap behavior, and multi-monitor support running on a lightweight footprint.
+[View on GitHub](https://github.com/farseenmanekhan1232/win-set)
+
+### Tkeybr
+A terminal-based typing tutor directly inspired by keybr.com. It is designed to train muscle memory utilizing an adaptive learning algorithm with progressive letter unlocking, phonetic pseudo-words for natural typing, and real-time statistics tracking WPM, accuracy, and per-key errors through keyboard heatmaps.
+[View on GitHub](https://github.com/farseenmanekhan1232/tkeybr)
+
+### CF-Tool Companion
+A Chrome extension specifically built to resolve authentication friction in the popular Codeforces CLI tool. It streamlines the login process, allowing competitive programmers to seamlessly submit code and parse test cases directly from their terminal.
+[View on GitHub](https://github.com/farseenmanekhan1232/cf-tool)
+
+### opencode-ollama-multi-auth
+An Opencode plugin for managing multiple Ollama Cloud API keys with automatic failover. It provides seamless key rotation on authentication errors (401, 403, 429), automatic key recovery after a configurable window, and supports both `opencode.json` and environment variable configuration. Built with TypeScript for developers needing reliable LLM API access without rate limit interruptions.
+[View on GitHub](https://github.com/farseenmanekhan1232/opencode-ollama-multi-auth)
+
+---
+
+## Thoughts
+
+A chronological timeline of public writings and journal entries.
+
+### Why is all major software so mediocre?
+*Jan 22, 2026*
+
+Why is it that almost all the major companies' software I use is pretty mediocre?
+
+- On X, half of my video posts fail to upload multiple times, every time.
+- On Meta's dev platform, it's nearly impossible to understand the docs to configure a WhatsApp bot, let alone test it.
+- For Google Auth to work on a mobile app, I had to upload, create-delete-recreate a Firebase app and upload SHA-1 multiple times from multiple places to multiple places.
+- For Microsoft, bro come on.
+- On YouTube, half the time when I navigate from Shorts to homepage and back to Shorts, the first 20 Shorts are the exact same ones I already watched.
+- Same for Instagram Reels.
+
+Even after so many years in the business, all of them only care about shoving ads deep down our throats.
+
+Now ChatGPT is doing the same.
+
+Fuck ads.
+
+### Clarity vs Code
+*Jan 13, 2026*
+
+Most people think building products is about code. I used to think that too.
+
+But after building for clients, working at startups, and trying to ship my own SaaS, I realised something painful: code is maybe 30% of the equation. Clarity is the other 70%.
+
+We obsess over the stack. Next.js vs SvelteKit. SQL vs NoSQL. We spend days setting up the "perfect" architecture for a problem we don't even fully understand yet. It's procrastination disguised as productivity.
+
+The hardest part isn't writing the function. It's knowing exactly what that function needs to do for the user. It's having the clarity to say "no" to features that don't matter.
+
+Building fast is good. But building the *right* thing is better. And you can't build the right thing if you're busy fighting your tools instead of understanding the problem.
+
+### Build boring things
+*Jan 13, 2026*
+
+Everyone wants to build the next big thing. The next Notion. The next Linear. The next OpenAI wrapper that changes the world.
+
+So we over-engineer. We add AI to things that need a spreadsheet. We build complex microservices for an app with zero users.
+
+But look at the real problems people have. They're usually small, annoying, and repeated daily.
+
+They don't need fancy agents. They don't need a vector database. They need a button that actually works. They need a form that saves their data reliably.
+
+I'm learning to embrace the "boring." Solve a real problem for a real person. Make it reliable. Make it fast.
+
+Money follows utility, not complexity.
+
+### AI and the death of the craftsman
+*Jan 08, 2026*
+
+There's a specific feeling I get now when I code. It's not the flow state I used to have. It's something else.
+
+When I write code now, I'm often just steering an LLM. "Generate a function that does X." "Fix this error." "Refactor this."
+
+It works. It's faster. It's objectively more efficient.
+
+But it's ruining the joy of programming for me.
+
+I used to pride myself on thinking through the edge cases. On holding the entire logic tree in my head. On that moment when the complex system you visualized actually runs.
+
+Now? I'm left with this lingering "what if" insecurity. Did I really build this? Or did I just assemble it? If the AI made a subtle logic error, will I even catch it, or have I become too lazy to read the code deeply?
+
+We're trading mastery for speed. Maybe that's the inevitable trade-off of technology, but it feels like were losing something human in the process.
+
+### We are the new mill workers
+*Dec 24, 2025*
+
+Writing code is becoming overrated.
+
+We are living through the exact same transition that textile workers faced during the Industrial Revolution. For a long time, weaving was a skilled craft. Then the machines came.
+
+The weavers who refused to adapt were left behind. The ones who learned to operate the machines—to become the orchestrators rather than the laborers—stayed relevant.
+
+We are seeing the same thing with coding agents. The "labor" of writing syntax is crashing to zero value. If your only skill is memorizing React hooks, you're in trouble.
+
+But curiosity? The ability to connect dots? The ability to understand a system and direct the machine to build it? That value is constant.
+
+History is repeating. We just have better screens.
+
+### The ROI of optimism
+*Dec 20, 2025*
+
+It's cool to be cynical. It's easy to look at everything—the job market, the AI hype, the economy—and say "it's all over."
+
+Shitposting and doom-scrolling feel good in the moment. They validate our fears.
+
+But looking back, every good thing that happened to me came from a moment of irrational optimism. Applying for a job I wasn't qualified for. Starting a project when I had no time. Reaching out to someone way out of my league.
+
+Optimism is a strategy. It's a competitive advantage because most people are too busy being "realistic" to try the things that might actually work.
+
+I'm choosing to be optimistic. Not because I'm blind to the problems, but because it's the only way to actually solve them.
