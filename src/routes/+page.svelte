@@ -1,10 +1,7 @@
 <script lang="ts">
-    import { thoughts } from '$lib/thoughts';
-    
-    // Sort by date descending
-    const sortedThoughts = [...thoughts].sort((a, b) => 
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
+    import type { PageProps } from './$types';
+
+    let { data }: PageProps = $props();
 
     function formatDate(dateStr: string) {
         return new Date(dateStr).toLocaleDateString('en-US', {
@@ -169,21 +166,36 @@
 
     <details open>
         <summary><h2 id="Thoughts" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">Thoughts</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        <p>A chronological timeline of public writings and journal entries.</p>
         
-        <div class="thoughts-feed">
-            {#each sortedThoughts as thought}
-                <details class="thought-item" style="margin-left: 1em; margin-bottom: 1.5em;">
-                    <summary style="font-size: 1.1em; margin-top: 0.5em;">
-                        <h3 style="display:inline; margin: 0; font-size: 1em;">{thought.title}</h3> 
-                        <span style="color: var(--text-muted); font-size: 0.8em; margin-left: 0.5rem; font-weight: normal;">— {formatDate(thought.date)}</span>
-                    </summary>
-                    <div class="thought-content" style="margin-top: 0.5em; padding-left: 1.5em; border-left: 2px solid #eaecf0; white-space: pre-wrap;">
-                        {thought.content}
+        {#if data.posts.length > 0}
+            <div class="thoughts-feed">
+                {#each data.posts as post}
+                    <div class="thought-item" style="margin-bottom: 2em;">
+                        {#if post.image}
+                            <div class="thumb" style="float: right; margin: 0 0 0.5em 1em; width: 200px;">
+                                <div class="thumbinner">
+                                    <img src={post.image} alt="" class="thumbimage" loading="lazy" />
+                                </div>
+                            </div>
+                        {/if}
+                        <h3 style="font-size: 1.1em; margin: 0 0 0.25em 0;">
+                            <a href={post.link}>{post.title}</a>
+                        </h3>
+                        <span style="color: var(--text-muted); font-size: 0.85em;">{formatDate(post.pubDate)}</span>
+                        {#if post.description}
+                            <p style="margin-top: 0.5em; color: var(--text-muted); font-size: 0.95em;">{post.description}</p>
+                        {/if}
                     </div>
-                </details>
-            {/each}
-        </div>
+                    <div class="clear-float"></div>
+                {/each}
+            </div>
+        {:else}
+            <p style="color: var(--text-muted);">Loading thoughts...</p>
+        {/if}
+
+        <p style="margin-top: 1em; font-size: 0.9em;">
+            Read more on <a href="https://farseen.substack.com/">farseen.substack.com</a>
+        </p>
     </details>
 
     <details open>
