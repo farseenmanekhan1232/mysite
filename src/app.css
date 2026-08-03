@@ -1,308 +1,38 @@
-/* ============================================
-   Portfolio Styles - Wikipedia Theme
-   ============================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --text-primary: #202122;
-    --text-muted: #54595d;
-    --border-color: #a2a9b1;
-    --link-color: #0645ad;
-    --link-visited: #0b0080;
+@layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
-    /* Exact Wikipedia Vector-2022 fonts */
-    --font-sans: sans-serif;
-    --font-serif: 'Linux Libertine', 'Georgia', 'Times', 'Source Serif 4', serif;
+	html {
+		font-size: 14px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 
-    --max-width: 960px;
+	body {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		color: #292524;
+		background-color: #ffffff;
+		min-height: 100vh;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 }
 
-/* Reset & Base */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 14px;
-}
-
-body {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-primary);
-    background-color: var(--bg-primary);
-    min-height: 100vh;
-}
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:visited {
-    color: var(--link-visited);
-}
-
-/* Container */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2rem;
-    min-height: 100vh;
-}
-
-/* Typography Headings */
-h1 {
-    font-family: var(--font-serif);
-    font-size: 1.8em;
-    font-weight: normal;
-    margin-bottom: 0.25em;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.2em;
-}
-
-/* Collapsible Sections */
-details {
-    margin-bottom: 1em;
-}
-
-summary {
-    cursor: pointer;
-    font-family: var(--font-serif);
-    font-size: 1.5em;
-    font-weight: normal;
-    margin-top: 1em;
-    margin-bottom: 0.25em;
-    list-style: none;
-    /* Hide default arrow in some browsers */
-    display: flex;
-    align-items: center;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-    /* Hide default arrow in webkit */
-}
-
-summary::before {
-    content: '▶';
-    font-size: 0.5em;
-    color: var(--link-color);
-    margin-right: 0.5rem;
-    display: inline-block;
-    transition: transform 0.2s;
-}
-
-details[open]>summary::before {
-    transform: rotate(90deg);
-}
-
-summary:hover::before {
-    color: var(--link-visited);
-}
-
-summary:focus {
-    outline: none;
-}
-
-summary h2 {
-    font-size: 1em;
-    /* Rely on summary size */
-    margin: 0;
-    border-bottom: none;
-    display: inline-block;
-    width: 100%;
-}
-
-/* Typography Headings */
-h1 {
-    font-family: var(--font-serif);
-    font-size: 2em;
-    font-weight: normal;
-    margin-bottom: 0.25em;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.2em;
-}
-
-h3 {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 1.2em;
-    margin-bottom: 0.5em;
-}
-
-p {
-    margin-bottom: 1em;
-}
-
-ul,
-ol {
-    margin-bottom: 1em;
-    margin-left: 2em;
-}
-
-li {
-    margin-bottom: 0.2em;
-}
-
-/* Wikipedia Hatnote */
-.hatnote {
-    font-style: italic;
-    color: var(--text-muted);
-    margin-bottom: 1.5em;
-    font-size: 0.9em;
-}
-
-/* Infobox (Vcard) */
-.infobox {
-    float: right;
-    clear: right;
-    width: 300px;
-    margin: 0 0 1em 1em;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    padding: 0.5em;
-    font-size: 0.9em;
-    display: table;
-}
-
-.infobox-title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
-    background-color: #eaecf0;
-    padding: 0.2em;
-}
-
-.infobox-image {
-    text-align: center;
-    margin-bottom: 0.5em;
-}
-
-.infobox-image img {
-    border: 1px solid #c8ccd1;
-    max-width: 100%;
-    height: auto;
-}
-
-.infobox-row {
-    display: table-row;
-}
-
-.infobox-header {
-    display: table-cell;
-    font-weight: bold;
-    padding: 0.2em 0.5em;
-    vertical-align: top;
-    width: 35%;
-}
-
-.infobox-data {
-    display: table-cell;
-    padding: 0.2em 0.5em;
-    vertical-align: top;
-}
-
-/* Table of Contents */
-.toc {
-    display: inline-block;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    padding: 1em;
-    margin: 1em 0;
-    font-size: 0.95em;
-}
-
-.toc-title {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 0.5em;
-}
-
-.toc ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.toc li {
-    margin-bottom: 0.2em;
-}
-
-.toc-number {
-    color: var(--text-primary);
-    margin-right: 0.5em;
-}
-
-/* Thumbnails for Projects */
-.thumb {
-    float: right;
-    clear: right;
-    margin: 0.5em 0 1em 1em;
-    width: 300px;
-    border: 1px solid #c8ccd1;
-    background-color: var(--bg-secondary);
-    padding: 4px;
-}
-
-.thumbinner {
-    width: 100%;
-}
-
-.thumbimage {
-    width: 100%;
-    height: auto;
-    border: 1px solid #c8ccd1;
-    display: block;
-}
-
-.thumbcaption {
-    font-size: 0.9em;
-    padding: 0.5em 0;
-    line-height: 1.4;
-}
-
-/* Clearfix for sections */
-.clear-float {
-    clear: both;
-}
-
-/* References Section */
-.references-list {
-    font-size: 0.9em;
-    column-count: 2;
-    column-gap: 2em;
-}
-
-.references-list li {
-    break-inside: avoid;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .infobox,
-    .thumb {
-        float: none;
-        width: 100%;
-        margin: 1em 0;
-    }
-
-    .references-list {
-        column-count: 1;
-    }
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #e7e5e4;
+		background-color: #111110;
+	}
 }

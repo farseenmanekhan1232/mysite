@@ -1,210 +1,160 @@
 <script lang="ts">
-    import type { PageProps } from './$types';
+	import type { PageProps } from './$types';
+	import SegmentedControl from '$lib/components/interior/segmented-control.svelte';
+	import VisitorCounter from '$lib/components/VisitorCounter.svelte';
 
-    let { data }: PageProps = $props();
+	let { data }: PageProps = $props();
 
-    function formatDate(dateStr: string) {
-        return new Date(dateStr).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short', 
-            day: 'numeric'
-        });
-    }
+	const segments = [
+		{ value: 'projects', label: 'Projects' },
+		{ value: 'writing', label: 'Writing' },
+		{ value: 'about', label: 'About' }
+	];
+
+	let active = $state('projects');
+
+	function formatDate(dateStr: string) {
+		return new Date(dateStr).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric'
+		});
+	}
 </script>
 
 <svelte:head>
-    <title>Farseen - Wikipedia</title>
-    <meta name="description" content="Farseen - Fullstack developer building AI and streaming tools" />
+	<title>Farseen</title>
+	<meta name="description" content="Farseen — Software Developer" />
 </svelte:head>
 
-<div class="container">
-    <h1>Farseen</h1>
-    <div class="hatnote">From the free encyclopedia, about the developer Farseen</div>
+<div class="mx-auto max-w-[640px] px-6 py-16">
+	<h1 class="mb-1 text-[15px] font-medium text-stone-800 dark:text-stone-100">Farseen</h1>
+	<p class="mb-10 text-[13px] text-stone-500 dark:text-stone-400">Software developer, Hubli</p>
 
-    <div class="infobox">
-        <div class="infobox-title">Farseen</div>
-        <div class="infobox-image">
-            <img src="/me.png" alt="Farseen" />
-        </div>
-        <div class="infobox-row">
-            <div class="infobox-header">Born</div>
-            <div class="infobox-data">c. 2001<br/>Hubli, India</div>
-        </div>
-        <div class="infobox-row">
-            <div class="infobox-header">Occupation</div>
-            <div class="infobox-data">Software Developer</div>
-        </div>
-        <div class="infobox-row">
-            <div class="infobox-header">Known for</div>
-            <div class="infobox-data">Open-source AI tooling, Streaming infrastructure</div>
-        </div>
-        <div class="infobox-row">
-            <div class="infobox-header">Website</div>
-            <div class="infobox-data"><a href="https://github.com/farseenmanekhan1232">GitHub</a></div>
-        </div>
-        <div class="infobox-row">
-            <div class="infobox-header">Socials</div>
-            <div class="infobox-data">
-                <a href="https://x.com/farsn_">X (Twitter)</a><br/>
-                <a href="https://www.linkedin.com/in/farseen-m-2419531a7">LinkedIn</a><br/>
-                <a href="https://www.youtube.com/@1farseen">YouTube</a><br/>
-                <a href="https://farseen.substack.com/">Substack</a><br/>
-                <a href="https://farseenmanekhan1232.medium.com/">Medium</a>
-            </div>
-        </div>
-    </div>
+	<div class="mb-10">
+		<SegmentedControl
+			options={segments}
+			label="Sections"
+			value={active}
+			onValueChange={(v) => (active = v)}
+		/>
+	</div>
 
-    <p><b>Farseen</b> is an Indian software developer based in Hubli. Known for his open-source work on AI tooling and streaming infrastructure, his projects are characterized by a focus on authentic human utility over algorithmic engagement. He has been active in web development, specializing in fullstack applications using <a href="https://svelte.dev/">Svelte</a>, <a href="https://nextjs.org/">Next.js</a>, and <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>.</p>
+	<div class="min-h-[320px] text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-200">
+		{#if active === 'projects'}
+			<div class="space-y-10">
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://rynk.chat" class="hover:underline">rynk.chat</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Open-source AI thought capture and synthesis tool built on Cloudflare Edge. Converts raw thought dumps into clustered idea threads and actionable research plans using Next.js, Cloudflare Workers, D1, Vectorize, and Groq.
+					</p>
+				</div>
 
-    <div class="toc">
-        <div class="toc-title">Contents</div>
-        <ul>
-            <li><a href="#Biography"><span class="toc-number">1</span> Biography</a></li>
-            <li><a href="#Skills"><span class="toc-number">2</span> Skills</a></li>
-            <li><a href="#Projects"><span class="toc-number">3</span> Projects</a></li>
-            <li><a href="#Thoughts"><span class="toc-number">4</span> Thoughts</a></li>
-            <li><a href="#References"><span class="toc-number">5</span> References</a></li>
-        </ul>
-    </div>
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://neustream.app" class="hover:underline">Neustream.app</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Multi-platform RTMP streaming tool — an open-source alternative to Restream. Ingest a single video source and broadcast to multiple destinations via FFmpeg and RTMP.
+					</p>
+				</div>
 
-    <details open>
-        <summary><h2 id="Biography" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">Biography</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        <p>Farseen's path into software engineering began through self-taught exploration, starting with writing <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> scripts out of pure curiosity. He eventually transitioned into web development as a career.<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup> His early experiences in freelancing shaped his software philosophy, teaching him the realities of shipping production software: moving fast, writing reliable code, and solving actual user problems.</p>
-        
-        <p>He is a vocal critic of the "algorithmic noise" prevalent in modern social media, arguing that <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">artificial intelligence</a> should act as a tool to automate "grunt work" rather than a replacement for human intent and creativity.<sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup> Now, he spends most of his time building open-source tools he wants to see in the world.</p>
-    </details>
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://github.com/farseenmanekhan1232/win-set" class="hover:underline">Win-set</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Minimal window manager for macOS with Hyprland-style auto-tiling. Built in Swift with Vim-style navigation, smart resize logic, drag-to-swap, and multi-monitor support.
+					</p>
+				</div>
 
-    <details open>
-        <summary><h2 id="Skills" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">Skills</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        <h3>Core Stack</h3>
-        <ul>
-            <li><b>Frontend:</b> <a href="https://en.wikipedia.org/wiki/React_(software)">React 19</a>, <a href="https://en.wikipedia.org/wiki/Next.js">Next.js 15</a>, <a href="https://en.wikipedia.org/wiki/TypeScript">TypeScript</a>, TailwindCSS 4, Vite</li>
-            <li><b>Backend:</b> <a href="https://en.wikipedia.org/wiki/Node.js">Node.js</a>, Express, <a href="https://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>, <a href="https://en.wikipedia.org/wiki/Redis">Redis</a></li>
-            <li><b>Languages:</b> JavaScript/TypeScript, Python, Shell scripting</li>
-        </ul>
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://github.com/farseenmanekhan1232/tkeybr" class="hover:underline">Tkeybr</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Terminal-based typing tutor inspired by keybr.com. Adaptive learning algorithm with progressive letter unlocking, phonetic pseudo-words, and real-time heatmaps.
+					</p>
+				</div>
 
-        <h3>Technical Differentiators</h3>
-        <ul>
-            <li><b>Cloudflare Edge Platform:</b> Workers, Pages, D1, R2, Vectorize, Workers AI, Durable Objects, OpenNext deployment</li>
-            <li><b>AI/Vector Search:</b> Embeddings, semantic search, <a href="https://en.wikipedia.org/wiki/Large_language_model">LLM</a> orchestration, multi-API integration (Exa, Perplexity, etc.)</li>
-            <li><b>Real-time Systems:</b> <a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets</a>, Socket.IO, live data streaming</li>
-            <li><b>Media Infrastructure:</b> <a href="https://en.wikipedia.org/wiki/FFmpeg">FFmpeg</a>, <a href="https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol">RTMP streaming</a>, MediaMTX/NGINX-RTMP</li>
-        </ul>
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://github.com/farseenmanekhan1232/cf-tool" class="hover:underline">CF-Tool Companion</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Chrome extension for Codeforces CLI authentication. Streamlines login so competitive programmers can submit and parse test cases from the terminal.
+					</p>
+				</div>
 
-        <h3>Secondary Skills</h3>
-        <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a>, <a href="https://en.wikipedia.org/wiki/CI/CD">CI/CD</a></li>
-            <li>Authentication (<a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>, Passport.js)</li>
-            <li>File processing (PDFs, images, code)</li>
-            <li>UI libraries (Radix UI, animation with Motion)</li>
-        </ul>
-    </details>
+				<div>
+					<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+						<a href="https://github.com/farseenmanekhan1232/opencode-ollama-multi-auth" class="hover:underline">opencode-ollama-multi-auth</a>
+					</h3>
+					<p class="mt-1 text-stone-500 dark:text-stone-400">
+						Opencode plugin for managing multiple Ollama Cloud API keys with automatic failover and key rotation on auth errors.
+					</p>
+				</div>
+			</div>
 
-    <details open>
-        <summary><h2 id="Projects" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">Projects</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        <p>His earlier stack revolved around TypeScript, Svelte, Next.js, Node, Postgres, and Cloudflare Workers. Recently, he has been deeply involved in AI/ML integration (using <a href="https://en.wikipedia.org/wiki/OpenAI">OpenAI</a>, Groq, and Vector DBs) and real-time streaming protocols (<a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>, mediasoup, FFmpeg).</p>
-        
-        <p>Farseen's notable open-source projects include:</p>
+		{:else if active === 'writing'}
+			{#if data.posts.length > 0}
+				<div class="space-y-6">
+					{#each data.posts as post}
+						<div>
+							<h3 class="text-[13px] font-medium text-stone-800 dark:text-stone-100">
+								<a href={post.link} class="hover:underline">{post.title}</a>
+							</h3>
+							<p class="mt-0.5 text-[12px] text-stone-400 dark:text-stone-500">{formatDate(post.pubDate)}</p>
+							{#if post.description}
+								<p class="mt-1 text-stone-500 dark:text-stone-400">{post.description}</p>
+							{/if}
+						</div>
+					{/each}
+				</div>
+				<p class="mt-8 text-[12px] text-stone-400 dark:text-stone-500">
+					More on <a href="https://farseen.substack.com/" class="text-stone-600 dark:text-stone-300 hover:underline">Substack</a>
+				</p>
+			{:else}
+				<p class="text-stone-400 dark:text-stone-500">Loading...</p>
+			{/if}
 
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/ideas.png" alt="Rynk Ideas Web screenshot" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://github.com/rynk-ai/rynk-ideas-web">Rynk Ideas</a></h3>
-        <p>An open-source AI thought capture and synthesis tool built on the Cloudflare Edge platform. It acts as a pipeline converting raw thought "dumps" into clustered "Idea Threads" and actionable research plans. The technical stack involves Next.js, Cloudflare Workers, D1 (SQLite database), Vectorize for semantic search, and Groq for <a href="https://en.wikipedia.org/wiki/Large_language_model">LLM</a> orchestration.</p>
-        <div class="clear-float"></div>
+		{:else if active === 'about'}
+			<p class="text-stone-500 dark:text-stone-400">
+				Self-taught software developer from Hubli, India. I started with Python scripts out of curiosity, transitioned into web development, and now build open-source tools at the intersection of AI, streaming infrastructure, and the edge.
+			</p>
+			<p class="mt-4 text-stone-500 dark:text-stone-400">
+				I believe AI should automate grunt work, not replace human intent. I spend most of my time building things I want to see in the world.
+			</p>
 
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/rynk.gif" alt="Rynk.io demo" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://rynk.io">Rynk.io</a></h3>
-        <p>An AI-powered research platform running entirely on Cloudflare's edge network, utilizing embeddings and semantic search to connect ideas efficiently.</p>
-        <div class="clear-float"></div>
+			<div class="mt-8 space-y-1.5">
+				<div>
+					<a href="https://github.com/farseenmanekhan1232" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">GitHub</a>
+				</div>
+				<div>
+					<a href="https://x.com/farsn_" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">X / Twitter</a>
+				</div>
+				<div>
+					<a href="https://www.linkedin.com/in/farseen-m-2419531a7" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">LinkedIn</a>
+				</div>
+				<div>
+					<a href="https://www.youtube.com/@1farseen" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">YouTube</a>
+				</div>
+				<div>
+					<a href="https://farseen.substack.com/" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">Substack</a>
+				</div>
+				<div>
+					<a href="https://farseenmanekhan1232.medium.com/" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">Medium</a>
+				</div>
+				<div>
+					<a href="mailto:farseenmanekhan1232@gmail.com" class="text-[13px] text-stone-600 dark:text-stone-300 hover:underline">Email</a>
+				</div>
+			</div>
+		{/if}
+	</div>
 
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/neustream.png" alt="Neustream.app demo" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://neustream.app">Neustream.app</a></h3>
-        <p>A multi-platform streaming infrastructure tool positioned as an open-source alternative to services like Restream. It leverages <a href="https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol">RTMP streaming</a> and <a href="https://en.wikipedia.org/wiki/FFmpeg">FFmpeg</a> to ingest a single video source and broadcast it efficiently to multiple destinations.</p>
-        <div class="clear-float"></div>
-
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/winset.gif" alt="Win-set demo" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/win-set">Win-set</a></h3>
-        <p>A minimal, highly opinionated window manager for <a href="https://en.wikipedia.org/wiki/MacOS">macOS</a> with Hyprland-style auto-tiling. Built natively in Swift, it features Vim-style navigation (h/j/k/l), smart resize logic that pauses constraints during adjustment, drag-to-swap behavior, and multi-monitor support running on a lightweight footprint.</p>
-        <div class="clear-float"></div>
-
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/tkeybr.gif" alt="Tkeybr demo" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/tkeybr">Tkeybr</a></h3>
-        <p>A terminal-based typing tutor directly inspired by keybr.com. It is designed to train muscle memory utilizing an adaptive learning algorithm with progressive letter unlocking, phonetic pseudo-words for natural typing, and real-time statistics tracking WPM, accuracy, and per-key errors through keyboard heatmaps.</p>
-        <div class="clear-float"></div>
-
-        <div class="thumb">
-            <div class="thumbinner">
-                <img src="/cf-companion.png" alt="CF-Tool Companion demo" class="thumbimage" loading="lazy" />
-            </div>
-        </div>
-        <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/cf-tool">CF-Tool Companion</a></h3>
-        <p>A <a href="https://en.wikipedia.org/wiki/Google_Chrome">Chrome</a> extension specifically built to resolve authentication friction in the popular Codeforces CLI tool. It streamlines the login process, allowing competitive programmers to seamlessly submit code and parse test cases directly from their terminal.</p>
-        <div class="clear-float"></div>
-
-        <h3 style="margin-top: 0.5em;"><a href="https://github.com/farseenmanekhan1232/opencode-ollama-multi-auth">opencode-ollama-multi-auth</a></h3>
-        <p>An <a href="https://github.com/opencode-ai">Opencode</a> plugin for managing multiple Ollama Cloud API keys with automatic failover. It provides seamless key rotation on authentication errors (401, 403, 429), automatic key recovery after a configurable window, and supports both <code>opencode.json</code> and environment variable configuration. Built with TypeScript for developers needing reliable LLM API access without rate limit interruptions.</p>
-    </details>
-
-    <details open>
-        <summary><h2 id="Thoughts" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">Thoughts</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        
-        {#if data.posts.length > 0}
-            <div class="thoughts-feed">
-                {#each data.posts as post}
-                    <div class="thought-item" style="margin-bottom: 2em;">
-                        {#if post.image}
-                            <div class="thumb" style="float: right; margin: 0 0 0.5em 1em; width: 200px;">
-                                <div class="thumbinner">
-                                    <img src={post.image} alt="" class="thumbimage" loading="lazy" />
-                                </div>
-                            </div>
-                        {/if}
-                        <h3 style="font-size: 1.1em; margin: 0 0 0.25em 0;">
-                            <a href={post.link}>{post.title}</a>
-                        </h3>
-                        <span style="color: var(--text-muted); font-size: 0.85em;">{formatDate(post.pubDate)}</span>
-                        {#if post.description}
-                            <p style="margin-top: 0.5em; color: var(--text-muted); font-size: 0.95em;">{post.description}</p>
-                        {/if}
-                    </div>
-                    <div class="clear-float"></div>
-                {/each}
-            </div>
-        {:else}
-            <p style="color: var(--text-muted);">Loading thoughts...</p>
-        {/if}
-
-        <p style="margin-top: 1em; font-size: 0.9em;">
-            Read more on <a href="https://farseen.substack.com/">farseen.substack.com</a>
-        </p>
-    </details>
-
-    <details open>
-        <summary><h2 id="References" style="display:inline-block; border-bottom: none; margin-top: 0; width: calc(100% - 1.5rem);">References</h2><div style="border-bottom: 1px solid var(--border-color); margin-bottom: 0.5em; margin-top: -0.5em;"></div></summary>
-        <ol class="references-list">
-            <li id="cite_note-1"><b><a href="#cite_ref-1">^</a></b> Farseen on GitHub. <a href="https://github.com/farseenmanekhan1232">github.com/farseenmanekhan1232</a></li>
-            <li id="cite_note-2"><b><a href="#cite_ref-2">^</a></b> Farseen on Substack. <a href="https://farseen.substack.com/">farseen.substack.com</a></li>
-            <li id="cite_note-3"><b>^</b> Professional inquiries. <a href="https://www.upwork.com/freelancers/farseen">Hire on Upwork</a></li>
-            <li id="cite_note-4"><b>^</b> Contact: <a href="mailto:farseenmanekhan1232@gmail.com">farseenmanekhan1232@gmail.com</a></li>
-        </ol>
-    </details>
+	<div class="mt-16">
+		<VisitorCounter />
+	</div>
 </div>
