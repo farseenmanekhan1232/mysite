@@ -9,9 +9,10 @@ export interface SubstackPost {
 }
 
 const SUBSTACK_RSS = 'https://farseen.substack.com/feed';
-const CACHE_TTL_MS = 60 * 60 * 1000;
+const REFRESH_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
 
 let cache: { posts: SubstackPost[]; fetchedAt: number } | null = null;
+let refreshing: Promise<void> | null = null;
 
 function xmlDecode(str: string): string {
 	return str
@@ -76,17 +77,35 @@ async function fetchPosts(fetchFn: typeof fetch): Promise<SubstackPost[]> {
 	return posts;
 }
 
-export const load: PageServerLoad = async ({ fetch }) => {
-	if (cache && Date.now() - cache.fetchedAt < CACHE_TTL_MS) {
+async function refresh(fetchFn: typeof fetch): Promise<void> {
+	try {
+		const posts = await fetchPosts(fetchFn);
+		cache = { posts, fetchedAt: Date.now() };
+	} catch {
+		if (!cache) throw new Error('Substack feed unavailable');
+	}
+}
+
+export const load: PageServerLoad = async ({ fetch, platform }) => {
+	if (!cache) {
+		try {
+			await refresh(fetch);
+			return { posts: cache!.posts };
+		} catch {
+			return { posts: [] };
+		}
+	}
+
+	if (cache && Date.now() - cache.fetchedAt < REFRESH_INTERVAL_MS) {
 		return { posts: cache.posts };
 	}
 
-	try {
-		const posts = await fetchPosts(fetch);
-		cache = { posts, fetchedAt: Date.now() };
-		return { posts };
-	} catch {
-		if (cache) return { posts: cache.posts };
-		return { posts: [] };
+	if (!refreshing) {
+		refreshing = refresh(fetch).finally(() => {
+			refreshing = null;
+		});
+		platform?.context?.waitUntil(refreshing);
 	}
+
+	return { posts: cache.posts };
 };

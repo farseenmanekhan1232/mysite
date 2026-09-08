@@ -9,7 +9,10 @@ declare global {
 		interface Platform {
 			env: {
 				VISITOR_TRACKER: DurableObjectNamespace;
-			}
+			};
+			context?: {
+				waitUntil(promise: Promise<unknown>): void;
+			};
 		}
 	}
 }
