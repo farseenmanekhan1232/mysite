@@ -117,7 +117,10 @@
 					More on <a href="https://farseen.substack.com/" class="text-stone-600 dark:text-stone-300 hover:underline">Substack</a>
 				</p>
 			{:else}
-				<p class="text-stone-400 dark:text-stone-500">Loading...</p>
+				<p class="text-stone-400 dark:text-stone-500">
+					Couldn't load posts. Read them on
+					<a href="https://farseen.substack.com/" class="text-stone-600 dark:text-stone-300 hover:underline">Substack</a>
+				</p>
 			{/if}
 
 		{:else if active === 'about'}
